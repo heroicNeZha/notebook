@@ -11,6 +11,7 @@ import javax.swing.text.DefaultStyledDocument.ElementSpec;
 // @lc code=start
 class Solution {
     public int majorityElement(int[] nums) {
+        //投票算法
         Stack<Integer> stack = new Stack<>();
         for (int i = 0; i < nums.length; i++) {
             if (stack.empty() || stack.peek() == nums[i]) {
