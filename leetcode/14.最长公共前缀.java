@@ -17,11 +17,11 @@ class Solution {
             if (length > string.length())
                 length = string.length();
         }
-        int i ;
-        for ( i = 0; i < length; i++) {
+        int i;
+        for (i = 0; i < length; i++) {
             for (int j = 0; j < strs.length - 1; j++) {
                 if (strs[j].charAt(i) != strs[j + 1].charAt(i)) {
-                    return strs[0].subSequence(0, i).toString();
+                    return strs[0].substring(0,i);
                 }
             }
         }

@@ -10,6 +10,7 @@
 			"**/.project": true,
 			"**/.settings": true,
 			"**/.factorypath": true
-		}
+		},
+		"editor.fontFamily": "'monospace'"
 	}
 }
