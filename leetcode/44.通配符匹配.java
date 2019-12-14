@@ -15,19 +15,16 @@ class Solution {
     }
 
     public boolean isMatch(String s, String p, int i, int j) {
-        if (book[i][j] != null) {
+        if (book[i+1][j+1] != null) {
+            return book[i+1][j+1];
+        }
+        //判断最后一个
+        if (p.length() == i+1) {
+            book[i+1][j+1] = s.length() == j+1;
             return book[i][j];
         }
-        if (p.length() == i) {
-            book[i][j] = s.length() == j;
-            return book[i][j];
-        }
-        if (p.charAt(0) == '*') {
-            if (p.length() == 1) {
-                book[p.length()][s.length()] = true;
-                return book[p.length()][s.length()];
-            }
-            if (p.length() > 1 && p.charAt(1) == '*') {
+        if (p.charAt(i) == '*') {
+            if (p.charAt(i+1) == '*') {
                 book[p.length()][s.length()] = isMatch(s, p.substring(1));
                 return book[p.length()][s.length()];
             }
@@ -45,7 +42,7 @@ class Solution {
             book[p.length()][s.length()] = false;
             return book[p.length()][s.length()];
         }
-        if (p.charAt(0) == s.charAt(0) || p.charAt(0) == '?') {
+        if (p.charAt(i-1) == s.charAt(j-1) || p.charAt(0) == '?') {
             book[p.length()][s.length()] = isMatch(s.substring(1), p.substring(1));
             return book[p.length()][s.length()];
         }
