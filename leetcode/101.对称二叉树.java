@@ -2,7 +2,6 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
-
 /*
  * @lc app=leetcode.cn id=101 lang=java
  *
@@ -24,15 +23,24 @@ class Solution {
         queue.offer(root.right);
         while (!queue.isEmpty()) {
             TreeNode node = queue.poll();
-            if (node != null)
-                if (stack.peek() == node.val)
+            if (stack.isEmpty()) {
+                if (node != null) {
+                    stack.push(node.val);
+                } else {
+                    stack.push(0);
+                }
+
+            } else {
+                if (node != null)
+                    if (stack.peek() == node.val)
+                        stack.pop();
+                    else
+                        stack.push(node.val);
+                else if (stack.peek() == 0)
                     stack.pop();
                 else
-                    stack.push(node.val);
-            else if (stack.peek() == 0)
-                stack.pop();
-            else
-                stack.push(0);
+                    stack.push(0);
+            }
         }
         return stack.isEmpty();
     }
