@@ -11,6 +11,6 @@
 			"**/.settings": true,
 			"**/.factorypath": true
 		},
-		"editor.fontFamily": "'monospace'"
+		"editor.fontFamily": "'Source Code Pro'"
 	}
 }
