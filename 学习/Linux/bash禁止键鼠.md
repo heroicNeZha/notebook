@@ -46,7 +46,7 @@ KEYBOARD_IN='AT Translated Set 2 keyboard'
 # 外接的键盘触摸板名字，同上插拔外接键鼠，并用xinput list命令确定你的外接键鼠的名字
 USB_KEYBOARD_OUT='SINO WEALTH USB KEYBOARD'
 # USB_MOUSE_OUT='USB OPTICAL MOUSE'
-
+# 循环可能会无法正常进入桌面,待测试
 while true
 do
     # 处理键盘的逻辑
