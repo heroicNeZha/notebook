@@ -14,13 +14,14 @@ class Solution {
             toggets[i] = nums[i] + i;
         }
         quicksort(toggets, 0, toggets.length - 1);
-        int max = toggets[0],i=0;
-        while(i<=max){
-            if(max<toggets[i]){
-                max=toggets[i];
+        int max = toggets[0], i = 0;
+        while (i <= max&&i<toggets.length) {
+            if (max < toggets[i]) {
+                max = toggets[i];
             }
+            i++;
         }
-        if(i>nums.length-1)
+        if (i >= nums.length)
             return true;
         return false;
     }
@@ -32,7 +33,7 @@ class Solution {
                 right--;
             }
             nums[left] = nums[right];
-            while (left < right && nums[right] > flag) {
+            while (left < right && nums[left] <= flag) {
                 left++;
             }
             nums[right] = nums[left];
