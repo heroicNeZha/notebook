@@ -6,3 +6,7 @@
 2. vue create my-app
 3. code my-app
 4. 安装vetur
+   
+### vue事件
+1. v-on监听事件
+2. 可以缩写为@
