@@ -1,20 +1,8 @@
 # Java高级开发
 
-高并发分布式开发
-- JVM揭秘
-- 多线程基础02
-- 线程安全-可见性
-- 线程安全-原子性
-- Synchronized底层原理
-- Lock接口及其实现
-- 并发编程容易类01
-- 并发编程容易类02
-- Fork/Join框架详解
-
-## 深度解析Java程序执行原理
-
-线程共享：所有线程能访问这块内存数据，随虚拟机或GC创建和销毁  
-线程独占：每个线程都会有他的独立空间，随线程生命周期而创建和销毁
+## JVM揭秘
+1. 线程共享：所有线程能访问这块内存数据，随虚拟机或GC创建和销毁
+2. 线程独占：每个线程都会有他的独立空间，随线程生命周期而创建和销毁
 
 ### 方法区
 
@@ -24,3 +12,28 @@ Hopspot VM以类对象方式存储在方法区
 GC：方法区存在垃圾回收、但回收效率低  
 回收主要针对常量池的回收和类型的卸载  
 当方法区无法满足内存要求时，报OOM
+
+![jvm](/学习/images/java_1.jpg)
+
+### java 代码运行过程
+
+```java
+public class Demo1{
+    final int NUMBER = 1;
+    private static Student stu = new Student();
+    
+    public void main(String args[]){
+        int x = 500;
+        int y = 100;
+        int z = x/y;
+
+        String envName = "JAVA_HOME";
+        stu.age = z;
+        String path = System.getenv(envName);
+    }
+}
+```
+上面代码的运行过程如下所示.
+![jvm](/学习/images/java_2.jpg)
+
+

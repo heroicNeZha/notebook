@@ -404,3 +404,8 @@ spring不需要自己写代码实现，已封装监听器，只需要配置就�
     <param-value>classpath:spring/applicationContext.xml</param-value>
 </context-param>
 ```
+---
+
+## Spring AOP
+
+需求:大量用户反映系统响应明显变慢,请核心组成员查明哪些功能模块慢,找出原因并优化.

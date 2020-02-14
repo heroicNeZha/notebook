@@ -1,2 +1,3 @@
 # jvm
-![jvm](/学习/picture/0213_1.jpg)
+
+[jvm解密](./../学习/Java++/JVM.md)
