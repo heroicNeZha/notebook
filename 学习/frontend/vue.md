@@ -136,4 +136,8 @@
     <router-link to="/about">About</router-link>
     ```
 4. vuex
-   1. 
+   1. 单向数据流:状态->试图->动作
+   2. 多个视图依赖同一状态(菜单导航)
+   3. 来自不同视图的行为需要变更统一状态(弹幕状态)
+   4. state:状态,通过store.state.name调用
+   5. mutations:方法,通过store.commit('func_name')调用
