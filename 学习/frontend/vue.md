@@ -141,3 +141,6 @@
    3. 来自不同视图的行为需要变更统一状态(弹幕状态)
    4. state:状态,通过store.state.name调用
    5. mutations:方法,通过store.commit('func_name')调用
+
+### element ui
+
