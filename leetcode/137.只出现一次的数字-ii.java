@@ -8,6 +8,9 @@ import java.util.HashMap;
 
 // @lc code=start
 class Solution {
+    //map
+    //hashtable
+    //电路
     public int singleNumber(int[] nums) {
         HashMap<Integer, Integer> hashmap = new HashMap<>();
         for (int num : nums)
