@@ -3,6 +3,7 @@
 ## Docker基础
 
 ### Docker架构
+
 1. Docker使用c/s架构,使用远程API来创建和管理Docker容器.
 2. Docker 容器(Container)通过 Docker 镜像(Images)来创建.镜像->容器相当于类->对象.  
     |          概念          |                               意义                               |
