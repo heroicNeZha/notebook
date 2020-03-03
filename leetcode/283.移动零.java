@@ -7,19 +7,13 @@
 // @lc code=start
 class Solution {
     public void moveZeroes(int[] nums) {
-        int count = 0;
-        for (int i : nums) {
-            if (i == 0)
-                count++;
+        int p = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != 0)
+                nums[p++] = nums[i];
         }
-        int zp = 0, nzp = 0;
-        while (nzp < count) {
-            while (nums[nzp] == 0) {
-                nzp++;
-            }
-            while (nums[zp] != 0) {
-                zp++;
-            }
+        while (p < nums.length) {
+            nums[p++] = 0;
         }
     }
 }
