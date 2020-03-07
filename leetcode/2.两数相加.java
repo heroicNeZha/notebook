@@ -11,40 +11,23 @@
  */
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode head = new ListNode(0);
-        ListNode p = head;
-        int one = 0, ten = 0;
+        ListNode dummyHead = new ListNode(0);
+        ListNode cur = dummyHead;
+        int carry = 0;
 
-        while (l1 != null && l2 != null) {
-            one = l1.val + l2.val + ten;
-            ten = one > 9 ? 1 : 0;
-            one = one % 10;
-            p.next = new ListNode(one);
-            p = p.next;
-            l1 = l1.next;
-            l2 = l2.next;
+        while (l1 != null || l2 != null || carry != 0) {
+            int val1 = l1 == null ? 0 : l1.val;
+            int val2 = l2 == null ? 0 : l2.val;
+            int temp = val1 + val2 + carry;
+            carry = temp > 9 ? 1 : 0;
+            cur.next = new ListNode(temp % 10);
+            cur = cur.next;
+            if (l1 != null)
+                l1 = l1.next;
+            if (l2 != null)
+                l2 = l2.next;
         }
-        while (l1 != null) {
-            one = l1.val + ten;
-            ten = one > 9 ? 1 : 0;
-            one = one % 10;
-            p.next = new ListNode(one);
-            p = p.next;
-            l1 = l1.next;
-        }
-        while (l2 != null) {
-            one = l2.val + ten;
-            ten = one > 9 ? 1 : 0;
-            one = one % 10;
-            p.next = new ListNode(one);
-            p = p.next;
-            l2 = l2.next;
-        }
-        if (ten != 0) {
-            p.next = new ListNode(ten);
-            p = p.next;
-        }
-        return head.next;
+        return dummyHead.next;
     }
 }
 // @lc code=end
