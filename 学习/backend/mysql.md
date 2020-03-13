@@ -1,8 +1,16 @@
 # MySQL
 
-## 基础语法刷题
+[牛客sql刷题](https://www.nowcoder.com/ta/sql?page=0)
 
-[牛客sql](https://www.nowcoder.com/ta/sql?page=0)
+## 技巧
+
+1. 在大表中distinct效率要比group by低.
+2. left join 比 inner join 多返回一部分数据,所以慢. 
+3. 判断存在效率排行
+   1. exists <= in <= join not
+   2. exists <= not in <= left join
+   3. not exists <= not in <= left join
+   4. in是把外表和内表作hash连接,而exists是对外表做loop循环,每次循环再对内表查询.所以内表小时用IN,外表小用exsits.
 
 ## 安装mysql
 

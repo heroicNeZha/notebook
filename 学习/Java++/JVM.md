@@ -36,3 +36,7 @@ public class Demo1{
 上面代码的运行过程如下所示.
 ![jvm](/学习/images/java_2.jpg)
 
+### 细节
+
+1. JVM内部使用unicode字符集,在边界时发生编码转换.
+
