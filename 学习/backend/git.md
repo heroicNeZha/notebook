@@ -31,3 +31,8 @@
 2. `git stash list/apply/drop/pop`列出,恢复,删除,恢复并删除
 3. `git cherry-pick commit_id`复制一份提交到此分支
 4. `git checkout -b dev origin/dev`创建dev分支与远程对应
+
+## 面试
+
+1. Merge 和 rebase 的区别
+    merge是产生新的commit,不改变提交历史.rebase会重写整个分支的commit信息,使其变成一条直线.
