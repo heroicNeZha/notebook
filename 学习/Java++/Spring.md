@@ -413,19 +413,18 @@ spring不需要自己写代码实现，已封装监听器，只需要配置就�
 
 # 面试
 
-1. Spring FactoryBean和BeanFactory 区别
-
+1. Spring FactoryBean和BeanFactory 区别  
 BeanFactory是个bean 工厂，是一个工厂类(接口)， 它负责生产和管理bean的一个工厂
 是ioc 容器最底层的接口，是个ioc容器，是spring用来管理和装配普通bean的ioc容器（这些bean成为普通bean）。
 FactoryBean是个bean，在IOC容器的基础上给Bean的实现加上了一个简单工厂模式和装饰模式，是一个可以生产对象和装饰对象的工厂bean，由spring管理后，
 生产的对象是由getObject()方法决定的（从容器中获取到的对象不是“FactoryBeanTest”对象）。
 
-2. IOC
+2. IOC  
 IOC是为了解决强依赖问题,就是把原本需要new出来的对象,交给Spring框架来管理,这样就实现了解耦合的作用.
 IOC容器是Spring用来实现IOC的载体，IOC容器实际上就是一个Map(key, value)，Map中存放的是各种对象。
 这样可以很大程度上简化应用的开发，把应用从复杂的依赖关系中解放出来。IOC容器就像是一个工厂，当需要创建一个对象，只需要配置好配置文件/注解即可，不用考虑对象是如何被创建出来的，大大增加了项目的可维护性且降低了开发难度。
  
-3. AOP
+3. AOP  
 OOP是一个自上而下纵向继承的编程思想,而AOP是一个横切的编程思想,采用横向抽取机制.
 扩展功能不修改源代码实现
 AOP(Aspect-Oriented Programming:面向切面编程)能够将那些与业务无关，却为业务模块所共同调用的逻辑或责任（例如事务处理、日志管理、权限控制等）封装起来，便于减少系统的重复代码，降低模块间的耦合度，并有利于未来的可拓展性和可维护性。
@@ -434,12 +433,22 @@ AOP(Aspect-Oriented Programming:面向切面编程)能够将那些与业务无�
    1. 有接口情况，使用JDK Proxy动态代理方式实现
    2. 没有接口情况，使用Cglib动态实现
  
-5. Spring AOP / AspectJ AOP 的区别？
+5. Spring AOP / AspectJ AOP 的区别？  
 Spring AOP属于运行时增强，而AspectJ是编译时增强。
 Spring AOP基于代理（Proxying），而AspectJ基于字节码操作（Bytecode Manipulation）。
 AspectJ相比于Spring AOP功能更加强大，但是Spring AOP相对来说更简单。如果切面比较少，那么两者性能差异不大。但是，当切面太多的话，最好选择AspectJ，它比SpringAOP快很多。
 
-6. Maven生命周期
+6. Spring 事务传播机制
+   |           名称            |                                               解释                                               |
+   | :-----------------------: | :----------------------------------------------------------------------------------------------: |
+   |   PROPAGATION_REQUIRED    |  支持当前事务，如果当前没有事务，就新建一个事务。这是最常见的选择，也是Spring默认的事务的传播。  |
+   |   PROPAGATION_SUPPORTS    |                       支持当前事务，如果当前没有事务，就以非事务方式执行。                       |
+   |   PROPAGATION_MANDATORY   |                           支持当前事务，如果当前没有事务，就抛出异常。                           |
+   | PROPAGATION_REQUIRES_NEW  |                           新建事务，如果当前存在事务，把当前事务挂起。                           |
+   | PROPAGATION_NOT_SUPPORTED |                    以非事务方式执行操作，如果当前存在事务，就把当前事务挂起。                    |
+   |     PROPAGATION_NEVER     |                         以非事务方式执行，如果当前存在事务，则抛出异常。                         |
+   |    PROPAGATION_NESTED     | 如果当前存在事务，则在嵌套事务内执行。如果当前没有事务，则进行与PROPAGATION_REQUIRED类似的操作。 |
+1. Maven生命周期
 Maven 有三个标准的生命周期：
 
 clean：项目清理的处理
