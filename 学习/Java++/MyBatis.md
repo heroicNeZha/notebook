@@ -210,9 +210,12 @@ MyBatis接口开发
         <setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString"/>
     </settings>
     ```
+    
 2. 全部全局参数如图
-    ![mybatis全局参数](..\images\mybatis全局参数.png)
-    ![mybatis全局参数](..\images\mybatis全局参数2.png)
+
+    ![mybatis全局参数](/Users/lzw/workspace/notebook/学习/Java++/assets/mybatis全局参数.png)
+
+    ![mybatis全局参数2](/Users/lzw/workspace/notebook/学习/Java++/assets/mybatis全局参数2.png)
 
 ### 别名
 
@@ -343,6 +346,7 @@ MyBatis接口开发
     3. \#{} 防止SQL注入  
         \${} 不防止注入
 2. 相同之处
+    
     1. 都可以获取对象的值（嵌套对象类型）
 3. 模糊查询
    1. 方式一，提前处理数据
@@ -359,6 +363,7 @@ MyBatis接口开发
     </select>
    ```
 4. 嵌套对象类型
+   
    1. 可级联调用
 
 ### 输入参数为HashMap
@@ -396,6 +401,7 @@ MyBatis接口开发
    1. 别名作为Map的key
    2. 返回值为HashMap时，只能查询一条
 4. 名字不一致也可以使用resultType+HashMap
+    
     >注意：发现某一个字段结果始终为默认值，可能是字段和属性没匹配上
 
 ## 动态SQL

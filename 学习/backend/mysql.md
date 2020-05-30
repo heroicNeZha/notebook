@@ -12,6 +12,46 @@
    3. not exists <= not in <= left join
    4. in是把外表和内表作hash连接,而exists是对外表做loop循环,每次循环再对内表查询.所以内表小时用IN,外表小用exsits.
 
+## 分组排名问题
+
+### 同薪同名，分组连续
+
+思路1: limit
+
+```SQL
+CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
+BEGIN
+    Set N = N-1;
+    RETURN (
+        select Salary 
+        from Employee
+        group by Salary
+        order by Salary desc 
+        limit N,1
+    );
+END
+```
+
+思路2: 自连接 或 子查询
+```SQL
+CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
+BEGIN
+    Set N = N-1;
+    RETURN (
+        select distinct e1.Salary 
+        from Employee e1 
+        join Employee e2 
+        on e1.Salary < e2.Salary
+        group by e1.salary having count(DISTINCT e2.salary) = N
+    );
+END
+```
+
+思路3: 8.0以上版本有内置函数
+- row_number(): 同薪不同名，相当于行号，例如3000、2000、2000、1000排名后为1、2、3、4
+- rank(): 同薪同名，有跳级，例如3000、2000、2000、1000排名后为1、2、2、4
+- dense_rank(): 同薪同名，无跳级，例如3000、2000、2000、1000排名后为1、2、2、3
+
 ## 安装mysql
 
 1. `sudo apt install mysql-server mysql-client`

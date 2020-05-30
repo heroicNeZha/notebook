@@ -13,7 +13,7 @@ GC：方法区存在垃圾回收、但回收效率低
 回收主要针对常量池的回收和类型的卸载  
 当方法区无法满足内存要求时，报OOM
 
-![jvm](/学习/images/java_1.jpg)
+![java_1](assets/java_1.jpg)
 
 ### java 代码运行过程
 
@@ -34,7 +34,8 @@ public class Demo1{
 }
 ```
 上面代码的运行过程如下所示.
-![jvm](/学习/images/java_2.jpg)
+
+![java_2](assets/java_2.jpg)
 
 ### 细节
 
